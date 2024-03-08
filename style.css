@@ -1,0 +1,50 @@
+body {
+  background-color: white;
+}
+#carousel {
+  height: 400px;
+  width: 412px;
+  background-color: rgba(14, 14, 168, 0.969);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-outer {
+  height: 55px;
+  width: 55px;
+  border: 2px solid red;
+}
+
+.hamburger-outer .bar {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  transition: all 100ms ease-in-out;
+}
+
+.hamburger-outer:hover {
+  cursor: pointer;
+}
+
+.x:nth-of-type(1) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 28px;
+}
+
+.x:nth-of-type(2) {
+  transition: all 100ms ease-in-out;
+  transform-origin: center;
+  width: 0;
+}
+
+.x:nth-of-type(3) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  width: 28px;
+}

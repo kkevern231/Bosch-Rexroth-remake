@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger Menu</title>
+  </head>
+  <body>
+    <div class="menu-container" onclick="transition()">
+      <span id="1" class="bar"></span>
+      <span id="2" class="bar"></span>
+      <span id="3" class="bar"></span>
+    </div>
+  </br>
+  <div class="flex p-4 m-10 content-center justify-center pl-20">
+    <div id="hamburger-menu" class="flex flex-col gap-1.5 text-blue-500 cursor-pointer bg-white border-2 border-blue-500">
+      <div class="bars" id="bar1"></div>
+      <div class="bars" id="bar2"></div>
+      <div class="bars" id="bar3"></div>
+    </div>
+  </div>
+  </body>
+</html>
+<style>
+  body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 30px 200px 30px;
+    grid-template-rows: 30px 200px 30px;
+    padding: 100px;
+  }
+
+  .menu-container {
+    background-color: red;
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .bar {
+    background-color: white;
+    margin: 5px;
+    height: 5px;
+    width: 45px;
+    border-radius: 50%;
+    transition: opacity 3s ease; /* Adding transition for opacity */
+  }
+
+  .hide {
+    opacity: 0;
+  }
+  .rotate1 {
+    transform: rotate(45deg) translate(5px, 7px);
+    width: 70px;
+  }
+
+  .rotate3 {
+    transform: rotate(-45deg) translate(5px, -7px);
+    width: 70px;
+  }
+
+  /* Add more styles as needed */
+#hamburger-menu {
+  cursor: pointer;
+  border: 2px solid blue;
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.bars {
+  width: 30px;
+  height: 4px;
+  margin: 6px;
+  background-color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+
+}
+
+#hamburger-menu.open #bar1 {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger-menu.open #bar2 {
+  opacity: 0;
+}
+
+#hamburger-menu.open #bar3 {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+</style>
+<script>
+  function transition() {
+    fadeOutBar2();
+    crossBar1();
+    crossBar3();
+  }
+
+  function fadeOutBar2() {
+    const bar2 = document.getElementById("2");
+    bar2.classList.toggle("hide"); // Adding the hide class to fade out bar 2
+  }
+
+  function crossBar1() {
+    const bar1 = document.getElementById("1");
+    bar1.classList.toggle("rotate1");
+  }
+
+  function crossBar3() {
+    const bar1 = document.getElementById("3");
+    bar1.classList.toggle("rotate3");
+  }
+
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+const bar1 = document.getElementById('bar1');
+const bar2 = document.getElementById('bar2');
+const bar3 = document.getElementById('bar3');
+
+hamburgerMenu.addEventListener('click', toggleHamburgerMenu);
+
+function toggleHamburgerMenu() {
+  hamburgerMenu.classList.toggle('open');
+}
+</script>
